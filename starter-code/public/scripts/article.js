@@ -68,17 +68,17 @@
 
   // Done: Chain together a `map` and a `reduce` call to produce an array of unique author names.
   Article.allAuthors = () => {
-    return Article.all().reduce((arr, current) => { if(arr.indexOf(current) < 0){arr.push(current)} return arr},[]);
+    return Article.all.map(art => {return art.author}).reduce((arr, current) => { if(arr.indexOf(current) < 0){arr.push(current)} return arr},[]);
   };
 
   Article.numWordsByAuthor = () => {
     return Article.allAuthors().map(author => {
-      // TODO: Transform each author string into an object with properties for
+      // DONE: Transform each author string into an object with properties for
       // the author's name, as well as the total number of words across all articles
       // written by the specified author.
       return {
-        name: , // TODO: Complete the value for this object property
-        numWords: Article.all.filter().map().reduce() // TODO: Complete these three FP methods.
+        name: author , // DONE: Complete the value for this object property
+        numWords:  Article.all.filter(ele => {return ele.author === author}).map(ele => {return ele.body.split(' ').length}).reduce((total, current) => {return total + current;}, 0) // DONE: Complete these three FP methods.
       }
     })
   };
