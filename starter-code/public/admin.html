@@ -10,19 +10,9 @@
     <link rel="stylesheet" href="/styles/layout.css">
     <link rel="stylesheet" href="/styles/modules.css">
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
-    <!-- TODO: Setup a template for each row of the Author Stats section of this page: -->
+    <!-- DONE: Setup a template for each row of the Author Stats section of this page: -->
     <script id="admin-template" type="text/x-handlebars-template">
-      <section>
-        <h1>Admin Stats</h1>
-        <p> The number of words in all the articles is ${numWordsAll()}</p>
-        <ul>
-          <li>`${numWordsByAuthor()[0].name} wrote a total of ${numWordsByAuthor()[0].numWords}words`</li>
-          <li>`${numWordsByAuthor()[1].name} wrote a total of ${numWordsByAuthor()[1].numWords}words`</li>
-          <li>`${numWordsByAuthor()[2].name} wrote a total of ${numWordsByAuthor()[2].numWords}words`</li>
-          <li>`${numWordsByAuthor()[3].name} wrote a total of ${numWordsByAuthor()[3].numWords}words`</li>
-          <li>`${numWordsByAuthor()[4].name} wrote a total of ${numWordsByAuthor()[4].numWords}words`</li>
-        </ul>
-      </secton>
+      <li>{{name}} wrote a total of {{numWords}} words</li>
     </script>
   </head>
   <body>
@@ -63,7 +53,8 @@
     <script src="/scripts/article.js"></script>
     <script src="/scripts/articleView.js"></script>
     <script>
-      // TODO: After we fetch and load all the articles, what view function do we want to run next?
+    Article.fetchAll(articleView.initAdminPage);
+      // DONE: After we fetch and load all the articles, what view function do we want to run next?
       // Let's pass in a callback function, to determine what happens AFTER all articles are loaded.
 
     </script>
